@@ -36,12 +36,12 @@ public class PackageService {
    * First arg is the file path, second is the boolean 1 or 0 if file in the same path or is abs
    *
    * @param args
+   * @return
    */
-  public void printPackageResults(ApplicationArguments args)
+  public String printPackageResults(ApplicationArguments args)
       throws NotCorrectArgumentsException, IOException {
     List<Order> order = loadOrdersFromFile(args);
-    String packageResults = getPackageResults(order);
-    System.out.println("packageResults = " + packageResults);
+    return  getPackageResults(order);
   }
 
 
@@ -158,9 +158,9 @@ public class PackageService {
     if (weight < item.getWeight()) {
       return EMPTY_SELECTED_ITEM;
     } else {
-      int i = Math.round(weight - item.getWeight());
+      Double i = Math.ceil((double)weight - (double)item.getWeight());
       SelectedItemPackage previousSelectedItemPackage = matrix
-          [i][item.getId() - 1];
+          [i.intValue()][item.getId() - 1];
       BigDecimal totalCost = previousSelectedItemPackage.getTotalPrice().add(item.getCost());
       Float totalWeight = previousSelectedItemPackage.getTotalWeight() + item.getWeight();
       List<Integer> newList = new ArrayList<>(previousSelectedItemPackage.getItems());

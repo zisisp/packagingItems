@@ -1,5 +1,6 @@
 package com.example.basket;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.example.basket.models.Item;
@@ -10,7 +11,6 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -173,8 +173,7 @@ class PackageServiceTest {
   private void testComparisonResults(List<String> ordersList, String expected) {
     List<Order> orders = ordersLoader.getOrders(ordersList);
     String packageResults = packageService.getPackageResults(orders);
-    System.out.println("packageResults = " + packageResults);
-    Assertions.assertEquals(
+    assertEquals(
         expected, packageResults);
   }
 }

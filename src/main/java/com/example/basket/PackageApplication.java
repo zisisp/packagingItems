@@ -1,10 +1,12 @@
 package com.example.basket;
 
+import lombok.extern.java.Log;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@Log
 @SpringBootApplication
 public class PackageApplication implements ApplicationRunner
 {
@@ -21,6 +23,7 @@ public class PackageApplication implements ApplicationRunner
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		packageService.printPackageResults(args);
+		String s = packageService.printPackageResults(args);
+		System.out.println(s);
 	}
 }

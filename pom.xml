@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>basket</artifactId>
+	<artifactId>package</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>basket</name>
+	<name>package</name>
 	<description>Demo project for Mercateo</description>
 	<properties>
 		<java.version>11</java.version>
@@ -54,6 +54,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>PackageSelector</finalName>
 	</build>
 
 </project>
